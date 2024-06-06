@@ -75,4 +75,10 @@ class Block:
             clients_data[transaction.sender.name]['max'] = max(clients_data[transaction.sender.name]['max'],
                                                                clients_data[transaction.sender.name][
                                                                    'current'])
+            clients_data[transaction.receiver.name]['min'] = min(clients_data[transaction.receiver.name]['min'],
+                                                               clients_data[transaction.receiver.name][
+                                                                   'current'])
+            clients_data[transaction.receiver.name]['max'] = max(clients_data[transaction.receiver.name]['max'],
+                                                               clients_data[transaction.receiver.name][
+                                                                   'current'])
         return clients_data

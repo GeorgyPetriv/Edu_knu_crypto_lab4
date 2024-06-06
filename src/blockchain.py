@@ -58,3 +58,8 @@ class Blockchain:
 
         return client_balances
 
+
+def save_to_json(blockchain: Blockchain, default_path='blockchain.json'):
+    print('Saving to json')
+    with open(default_path, 'w') as f:
+        json.dump([block.__repr__() for block in blockchain.chain], f, indent=4)

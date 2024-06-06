@@ -20,6 +20,7 @@ class Client:
             print(f"Error: negative amount")
             return
         transaction = Transaction(self, receiver, amount)
+        self.balance -= amount
         return transaction
 
     def receiveTransaction(self, amount: int):

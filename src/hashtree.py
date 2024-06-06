@@ -16,18 +16,17 @@ class HashTree:
             self.root = None
             return
 
-        copy = self.leaves
-        while len(copy) > 1:
-            if len(copy) % 2 == 1:
-                copy.append(Node(self.leaves[-1].hash))
-
+        tree_copy = self.leaves
+        while len(tree_copy) > 1:
+            if len(tree_copy) % 2 == 1:
+                tree_copy.append(Node(self.leaves[-1].hash))
             new_node_level = []
-            for i in range(0, len(copy), 2):
-                new_node = Node(lnode=copy[i], rnode=copy[i + 1])
+            for i in range(0, len(tree_copy), 2):
+                new_node = Node(lnode=tree_copy[i], rnode=tree_copy[i + 1])
                 new_node_level.append(new_node)
             tree_copy = new_node_level
 
-        self.root = copy[0]
+        self.root = tree_copy[0]
         
 
 class Node:
